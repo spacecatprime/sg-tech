@@ -1,0 +1,45 @@
+﻿[General]
+add Debug tab to dump game event logs
+` write a logger system
+
+[Dialog UI]
+Determine what is Action Bar and Read Token bar
+get the "activate progress bar" working
+
+[Entity System]
+design an entity system for all game objects
+Actor: a speaker (or complex object to interact with?)
+GameConversation: a interaction between two or more Actors
+GameToken: base class of all objects that can affect game events or be owned by actors
+Place: a venue for actors to come to (GameLocation)
+Event: generated and sent to drive the game's simulation
+
+[Logging System]
+use the same one for both game logs (e.g. mission and game event logs) and debug logs (e.g. internal engine logs)
+impl events game log
+impl spoken log
+impl places log
+
+[Dialog System]
+dev the conv data struct
+start a conversation
+detect end of conv
+
+[Event System]
+obj manager generic event system
+
+[Actor System]
+develop the basic actor template
+design trait sys
+design skill sys
+design attribute sys
+
+[Container & Ownership System]
+develop GameContainer
+design inventory sys
+design memory sys
+design journal sys
+
+[Game Sim]
+the AI of the system
+

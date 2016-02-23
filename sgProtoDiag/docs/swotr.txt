@@ -1,0 +1,22 @@
+[gather]
+archaeology+
+bioanalysis+
+scavenging++
+
+[gather like]
+slicing+
+
+[mission]
+diplo+
+underworld+
+invest+
+treasure
+
+[craft]
+biochem+
+artific+
+synthweav
+armstech+
+cybertech+
+armortech
+

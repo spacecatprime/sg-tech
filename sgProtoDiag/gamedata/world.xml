@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+
+<spygame>
+  <world>
+    <characters>
+      
+      <character name="Frederic Smooth"
+                 gender="male"
+                 startLocation="location[@name=cafe]">
+        <inventory>
+          <item name="Black Coffee" type="item.consume.coffee"/>
+          <item name="Simple Radio" type="item.comm.radio.common" />
+          <item name="Cigar" quality="0.99" type="item.comm.radio.common" />
+        </inventory>
+        <motives>
+          <motive name="Greed" degree="0.5" control="list.motive.controls.greed" flags="hidden"/>
+          <motive name="Lust" degree="0.5" control="list.motive.controls.lust" />
+        </motives>
+      </character>
+
+      <character name="Gina Chipper"
+                 id="gina"
+                 gender="female"
+                 startLocation="location[@name=cafe]"
+                 storyScript="story.gina.chipper.xml"
+                 nationality="USA">
+        <inventory>
+          <item name="Ender's Game" type="item.inspect.book" />
+          <item name="Stilleto" type="item.weapon.melee.knife" flags="hidden"/>
+        </inventory>
+        <motives>
+          <motive name="Vanity" degree="0.5" control="list.motive.controls.hubris" keyfor=""/>
+          <motive name="Loyalty" degree="0.1" control="list.motive.controls.loyalty.nation" />
+        </motives>
+      </character>
+
+      <character name="Prof. Wendel"
+                 id="profwen"
+                 gender="male"
+                 startLocation="location[@name=hotel]"
+                 storyScript="story.gina.chipper.xml"
+                 nationality="British">
+        <inventory>
+          <item name="Special Plans" type="item.inspect.plans.science" />
+        </inventory>
+        <motives>
+          <motive name="Curiosity" degree="0.8" control="list.motive.controls.curiosity" keyfor=""/>
+          <motive name="Loyalty" degree="0.1" control="list.motive.controls.apprehension" />
+        </motives>
+      </character>
+
+      <character name="Tep"
+                 gender="male"
+                 age="kid"
+                 startLocation="location[@name=park]"
+                 storyScript="story.gina.chipper.xml"
+                 nationality="British">
+        <inventory>
+          <item name="Special Plans" type="item.inspect.plans.science" />
+        </inventory>
+        <motives>
+          <motive name="Paranoid" degree="0.8" control="list.motive.controls.paranoia"/>
+        </motives>
+        <information>
+          <tidbit name="The goods on Wendel" type="info.data.gossip" target="character[@id='profwen']" quality="0.7"/>
+          <tidbit name="The look away" type="info.favor.police" quality="0.25"/>
+        </information>
+      </character>
+
+      <character name="Charleston 'Chip' Garson"
+                 id="chip"
+                 gender="male"
+                 startLocation="location[@name=hotel]"
+                 storyScript="story.charleston.garson.xml"
+                 nationality="British">
+        <inventory>
+          <item name="Special Plans" type="item.inspect.plans.science" />
+        </inventory>
+        <motives>
+          <motive name="Paranoid" degree="0.8" control="list.motive.controls.paranoia"/>
+        </motives>
+        <information>
+          <tidbit name="The goods on Wendel" type="info.data.gossip" target="character[@id='profwen']" quality="0.7"/>
+          <tidbit name="The look away" type="info.favor.police" quality="0.25"/>
+        </information>
+      </character>
+
+    </characters>
+
+    <locations>
+      <location name="park" 
+                setting="exterior" >        
+      </location>
+
+      <location name="cafe" 
+                setting="interior">
+      </location>
+
+      <location name="hotel" 
+                setting="interior">
+        <location name="Hotel Room 101"
+                  setting="interior"
+                  owner="character[@id='gina']"
+                  locked="true">
+        </location>
+        <location name="Back Office"
+                  setting="interior"
+                  owner="character[@id='chip']"
+                  locked="true">
+        </location>
+      </location>
+      
+    </locations>
+
+    <!-- templated items that can be shared by other inventories -->
+    <!-- fills out instances of gamedata.ItemData -->
+    <types>
+
+      <type name="item">
+        <attribute key="isbreakable" value="false"/>
+      </type>
+
+      <type name="item.weapon">
+        <attribute key="isweapon" value="true"/>
+      </type>
+
+      <type name="item.weapon.melee.knife">
+        <attribute key="issilent" value="true"/>
+      </type>
+
+      <type name="item.gift.debug">
+        <attribute key="worth" value="1.0"/>
+      </type>
+
+    </types>
+
+    <!-- fills out instances of gamedata.ListData -->
+    <lists>
+
+      <list name="list.motive.controls.greed">
+        <bit value="item.currency.money"/>
+        <bit value="item.gift.*[@worth>0.8]"/>
+      </list>
+
+      <list name="list.motive.controls.paranoia">
+        <bit value="item.personal.blackmail"/>
+        <bit value="environment.near.police"/>
+      </list>
+
+      <list name="list.motive.controls.lust">
+        <bit value="placeholder"/>
+      </list>
+
+      <list name="list.motive.controls.loyalty.nation">
+        <bit value="placeholder"/>
+      </list>
+
+      <list name="list.motive.controls.hubris">
+        <bit value="placeholder"/>
+      </list>
+
+      <list name="list.motive.controls.curiosity">
+        <bit value="placeholder"/>
+      </list>
+
+      <list name="list.motive.controls.apprehension">
+        <bit value="placeholder"/>
+      </list>
+      
+    </lists>
+    
+  </world>
+</spygame>

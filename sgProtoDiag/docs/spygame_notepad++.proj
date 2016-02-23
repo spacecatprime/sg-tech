@@ -1,0 +1,8 @@
+<NotepadPlus>
+    <Project name="docs">
+        <File name="DesignNotes.txt" />
+        <File name="Example.xml" />
+        <File name="TODO.txt" />
+        <File name="scratch.txt" />
+    </Project>
+</NotepadPlus>
